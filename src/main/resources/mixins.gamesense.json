@@ -1,9 +1,34 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "dev.gamesense.backend.mixin.mixins",
+  "package": "com.gamesense.mixin.mixins",
   "refmap": "mixins.gamesense.refmap.json",
   "mixins": [
+    "MixinAbstractClientPlayer",
+    "MixinBlockLiquid",
+    "MixinBlockSoulSand",
+    "MixinEntity",
+    "MixinEntityPlayer",
+    "MixinEntityPlayerSP",
+    "MixinEntityRenderer",
+    "MixinFontRenderer",
+    "MixinGuiBossOverlay",
+    "MixinGuiNewChat",
+    "MixinGuiPlayerTabOverlay",
+    "MixinGuiScreen",
+    "MixinItemRenderer",
+    "MixinLayerBipedArmor",
+    "MixinMinecraft",
+    "MixinMovementInputFromOptions",
+    "MixinNetworkManager",
+    "MixinPlayerControllerMP",
+    "MixinPlayerOverlay",
+    "MixinRenderGlobal",
+    "MixinRenderLivingBase",
+    "MixinRenderManager",
+    "MixinRenderPlayer",
+    "MixinWorld",
+    "accessor.AccessorEntityPlayerSP"
 
   ]
-}
+} 
