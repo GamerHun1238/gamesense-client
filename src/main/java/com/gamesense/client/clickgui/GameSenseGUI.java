@@ -41,7 +41,7 @@ import com.lukflug.panelstudio.container.IContainer;
 import com.lukflug.panelstudio.hud.HUDGUI;
 import com.lukflug.panelstudio.layout.CSGOLayout;
 import com.lukflug.panelstudio.layout.ChildUtil.ChildMode;
-import com.lukflug.panelstudio.layout.ComponentGenerator;
+import com.gamesense.client.clickgui.ComponentGenerator;
 import com.lukflug.panelstudio.layout.IComponentAdder;
 import com.lukflug.panelstudio.layout.IComponentGenerator;
 import com.lukflug.panelstudio.layout.ILayout;
