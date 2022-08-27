@@ -6,7 +6,7 @@ import com.gamesense.api.setting.values.ColorSetting;
 import com.gamesense.api.setting.values.IntegerSetting;
 import com.gamesense.api.setting.values.ModeSetting;
 import com.gamesense.api.util.player.social.SocialManager;
-import com.gamesense.api.util.render.GSColor;
+import dev.gamesense.misc.GSColor;
 import com.gamesense.api.util.render.RenderUtil;
 import com.gamesense.client.module.Category;
 import com.gamesense.client.module.Module;
@@ -40,34 +40,34 @@ public class Tracers extends Module {
     public void onWorldRender(RenderEvent event) {
         ColorMain colorMain = ModuleManager.getModule(ColorMain.class);
         mc.world.loadedEntityList.stream()
-                .filter(e -> e instanceof EntityPlayer)
-                .filter(e -> e != mc.player)
-                .forEach(e -> {
-                    if (mc.player.getDistance(e) > renderDistance.getValue()) {
-                        return;
+            .filter(e -> e instanceof EntityPlayer)
+            .filter(e -> e != mc.player)
+            .forEach(e -> {
+                if (mc.player.getDistance(e) > renderDistance.getValue()) {
+                    return;
+                } else {
+                    if (SocialManager.isFriend(e.getName())) {
+                        tracerColor = colorMain.getFriendGSColor();
+                    } else if (SocialManager.isEnemy(e.getName())) {
+                        tracerColor = colorMain.getEnemyGSColor();
                     } else {
-                        if (SocialManager.isFriend(e.getName())) {
-                            tracerColor = colorMain.getFriendGSColor();
-                        } else if (SocialManager.isEnemy(e.getName())) {
-                            tracerColor = colorMain.getEnemyGSColor();
-                        } else {
-                            if (mc.player.getDistance(e) < 20) {
-                                tracerColor = nearColor.getValue();
-                            }
-                            if (mc.player.getDistance(e) >= 20 && mc.player.getDistance(e) < 50) {
-                                tracerColor = midColor.getValue();
-                            }
-                            if (mc.player.getDistance(e) >= 50) {
-                                tracerColor = farColor.getValue();
-                            }
+                        if (mc.player.getDistance(e) < 20) {
+                            tracerColor = nearColor.getValue();
+                        }
+                        if (mc.player.getDistance(e) >= 20 && mc.player.getDistance(e) < 50) {
+                            tracerColor = midColor.getValue();
+                        }
+                        if (mc.player.getDistance(e) >= 50) {
+                            tracerColor = farColor.getValue();
+                        }
 
-                            if (colorType.getValue()) {
-                                tracerColor = getDistanceColor((int) mc.player.getDistance(e));
-                            }
+                        if (colorType.getValue()) {
+                            tracerColor = getDistanceColor((int) mc.player.getDistance(e));
                         }
                     }
-                    drawLineToEntityPlayer(e, tracerColor);
-                });
+                }
+                drawLineToEntityPlayer(e, tracerColor);
+            });
     }
 
     public void drawLineToEntityPlayer(Entity e, GSColor color) {

@@ -6,6 +6,7 @@ import com.gamesense.api.util.world.GeometryMasks;
 import com.gamesense.client.module.ModuleManager;
 import com.gamesense.client.module.modules.gui.ColorMain;
 import com.gamesense.client.module.modules.render.Nametags;
+import dev.gamesense.misc.GSColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -225,22 +226,22 @@ public class RenderUtil {
     public static void drawDirection(Points square, GSColor color, float width) {
         for (int i = 0; i < 4; i++) {
             drawLine(square.getPoint(i)[0], square.yMin, square.getPoint(i)[1],
-                    square.getPoint((i + 1) % 4)[0], square.yMin, square.getPoint((i + 1) % 4)[1],
-                    color, width
+                square.getPoint((i + 1) % 4)[0], square.yMin, square.getPoint((i + 1) % 4)[1],
+                color, width
             );
         }
 
         for (int i = 0; i < 4; i++) {
             drawLine(square.getPoint(i)[0], square.yMax, square.getPoint(i)[1],
-                    square.getPoint((i + 1) % 4)[0], square.yMax, square.getPoint((i + 1) % 4)[1],
-                    color, width
+                square.getPoint((i + 1) % 4)[0], square.yMax, square.getPoint((i + 1) % 4)[1],
+                color, width
             );
         }
 
         for (int i = 0; i < 4; i++) {
             drawLine(square.getPoint(i)[0], square.yMin, square.getPoint(i)[1],
-                    square.getPoint(i)[0], square.yMax, square.getPoint(i)[1],
-                    color, width
+                square.getPoint(i)[0], square.yMax, square.getPoint(i)[1],
+                color, width
             );
         }
     }

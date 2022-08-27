@@ -1,20 +1,17 @@
 package com.gamesense.client.module.modules.hud;
 
 import com.gamesense.api.util.font.FontUtil;
-import com.gamesense.api.util.render.GSColor;
+import dev.gamesense.misc.GSColor;
 import com.gamesense.client.module.Category;
 import com.gamesense.client.module.Module;
 import com.gamesense.client.module.ModuleManager;
 import com.gamesense.client.module.modules.gui.ColorMain;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.item.ItemStack;
 
 @Module.Declaration(name = "ArmorHUD", category = Category.HUD)
 public class ArmorHUD extends Module {
-
-    private static final RenderItem itemRender = mc.getRenderItem();
 
     public void onRender() {
         GlStateManager.pushMatrix();
@@ -30,10 +27,10 @@ public class ArmorHUD extends Module {
             int x = i - 90 + (9 - iteration) * 20 + 2;
             GlStateManager.enableDepth();
 
-            itemRender.zLevel = 200F;
-            itemRender.renderItemAndEffectIntoGUI(is, x, y);
-            itemRender.renderItemOverlayIntoGUI(mc.fontRenderer, is, x, y, "");
-            itemRender.zLevel = 0F;
+            mc.getRenderItem().zLevel = 200F;
+            mc.getRenderItem().renderItemAndEffectIntoGUI(is, x, y);
+            mc.getRenderItem().renderItemOverlayIntoGUI(mc.fontRenderer, is, x, y, "");
+            mc.getRenderItem().zLevel = 0F;
 
             GlStateManager.enableTexture2D();
             GlStateManager.disableLighting();

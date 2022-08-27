@@ -8,7 +8,7 @@ import com.gamesense.api.setting.values.ModeSetting;
 import com.gamesense.api.util.font.FontUtil;
 import com.gamesense.api.util.misc.ColorUtil;
 import com.gamesense.api.util.player.social.SocialManager;
-import com.gamesense.api.util.render.GSColor;
+import dev.gamesense.misc.GSColor;
 import com.gamesense.api.util.render.RenderUtil;
 import com.gamesense.client.manager.managers.TotemPopManager;
 import com.gamesense.client.module.Category;
@@ -102,17 +102,15 @@ public class Nametags extends Module {
         if (showGameMode.getValue()) {
             if (entityPlayer.isCreative()) {
                 name = name + " [C]";
-            }
-            else if (entityPlayer.isSpectator()) {
+            } else if (entityPlayer.isSpectator()) {
                 name = name + " [I]";
-            }
-            else {
+            } else {
                 name = name + " [S]";
             }
         }
 
         if (showTotem.getValue()) {
-            name = name + " [" + TotemPopManager.INSTANCE.getPlayerPopCount(entityPlayer.getName()) +"]";
+            name = name + " [" + TotemPopManager.INSTANCE.getPlayerPopCount(entityPlayer.getName()) + "]";
         }
 
         if (showPing.getValue()) {
@@ -185,7 +183,7 @@ public class Nametags extends Module {
                     posY = size;
                 }
             }
-            armorCount --;
+            armorCount--;
         }
 
         if (!mainHandItem.isEmpty() && (showItems.getValue() || showDurability.getValue() && offHandItem.isItemStackDamageable())) {

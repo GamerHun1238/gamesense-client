@@ -1,5 +1,6 @@
 package com.gamesense.api.util.render;
 
+import dev.gamesense.misc.GSColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -8,10 +9,9 @@ import static org.lwjgl.opengl.GL11.*;
 
 /**
  * @author Seth
- * @source https://github.com/seppukudevelopment/seppuku/blob/master/src/main/java/me/rigamortis/seppuku/impl/module/render/ChamsModule.java
- *
  * @author Techale
  * @author Hoosiers
+ * @source https://github.com/seppukudevelopment/seppuku/blob/master/src/main/java/me/rigamortis/seppuku/impl/module/render/ChamsModule.java
  */
 
 public class ChamsUtil {

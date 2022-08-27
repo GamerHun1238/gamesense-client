@@ -9,7 +9,7 @@ import com.gamesense.api.setting.values.IntegerSetting;
 import com.gamesense.api.setting.values.ModeSetting;
 import com.gamesense.api.util.misc.MessageBus;
 import com.gamesense.api.util.misc.Timer;
-import com.gamesense.api.util.render.GSColor;
+import dev.gamesense.misc.GSColor;
 import com.gamesense.api.util.render.RenderUtil;
 import com.gamesense.api.util.world.GeometryMasks;
 import com.gamesense.client.module.Category;
@@ -48,9 +48,9 @@ public class LogoutSpots extends Module {
 
     public void onUpdate() {
         mc.world.playerEntities.stream()
-                .filter(entityPlayer -> entityPlayer != mc.player)
-                .filter(entityPlayer -> entityPlayer.getDistance(mc.player) <= range.getValue())
-                .forEach(entityPlayer -> worldPlayers.add(entityPlayer));
+            .filter(entityPlayer -> entityPlayer != mc.player)
+            .filter(entityPlayer -> entityPlayer.getDistance(mc.player) <= range.getValue())
+            .forEach(entityPlayer -> worldPlayers.add(entityPlayer));
     }
 
     public void onWorldRender(RenderEvent event) {

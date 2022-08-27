@@ -2,7 +2,7 @@ package com.gamesense.client.module.modules.render;
 
 import com.gamesense.api.setting.values.BooleanSetting;
 import com.gamesense.api.setting.values.ColorSetting;
-import com.gamesense.api.util.render.GSColor;
+import dev.gamesense.misc.GSColor;
 import com.gamesense.client.module.Category;
 import com.gamesense.client.module.Module;
 import me.zero.alpine.listener.EventHandler;
@@ -18,17 +18,17 @@ public class SkyColor extends Module {
     @SuppressWarnings("unused")
     @EventHandler
     private final Listener<EntityViewRenderEvent.FogColors> fogColorsListener = new Listener<>(event -> {
-       event.setRed(color.getValue().getRed() / 255.0F);
-       event.setGreen(color.getValue().getGreen() / 255.0F);
-       event.setBlue(color.getValue().getBlue() / 255.0F);
+        event.setRed(color.getValue().getRed() / 255.0F);
+        event.setGreen(color.getValue().getGreen() / 255.0F);
+        event.setBlue(color.getValue().getBlue() / 255.0F);
     });
 
     @SuppressWarnings("unused")
     @EventHandler
     private final Listener<EntityViewRenderEvent.FogDensity> fogDensityListener = new Listener<>(event -> {
-       if (!fog.getValue()) {
-           event.setDensity(0);
-           event.setCanceled(true);
-       }
+        if (!fog.getValue()) {
+            event.setDensity(0);
+            event.setCanceled(true);
+        }
     });
 }
